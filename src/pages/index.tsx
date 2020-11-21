@@ -1,9 +1,10 @@
-import HelloWorld from '../components/hello-world'
+// React
+import { FC } from "react";
+// Layouts
+import PshChatLayout from "layouts/psh-chat";
 
-export default function Home() {
-  return (
-    <div className="app">
-      <HelloWorld />
-    </div>
-  )
-}
+const Home: FC = () => {
+	return <PshChatLayout />;
+};
+
+export default Home;

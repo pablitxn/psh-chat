@@ -1,0 +1,10 @@
+.navbar {
+	background-color: black;
+	color: gray;
+	display: flex;
+	flex-direction: column;
+
+	&__header {
+		background-color: red;
+	}
+}
