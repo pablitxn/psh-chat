@@ -4,24 +4,21 @@ import { FC } from "react";
 import { IChatData } from "interfaces";
 // Components
 import Navbar from "components/navbar";
+import Chat from "components/chat";
 // Styles
 import "./styles.scss";
 
 interface IPshChatLayout {
-	chatData: IChatData;
+	chatData: IChatData[];
 }
 
 const PshChatLayout: FC<IPshChatLayout> = ({ chatData }) => {
+	const chatSelected = chatData[1];
+
 	return (
 		<div className="psh-layout">
 			<Navbar chatData={chatData} />
-			<div
-				style={{
-					backgroundColor: "aquamarine",
-					width: "100%",
-					height: "100%"
-				}}
-			/>
+			<Chat chatSelected={chatSelected} />
 		</div>
 	);
 };

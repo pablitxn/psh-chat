@@ -1,0 +1,20 @@
+.chat {
+	&__header {
+		background-color: #fafafa;
+	}
+
+	&__body {
+		background-color: gray;
+	}
+
+	&__input-section {
+		background-color: #fafafa;
+		display: flex;
+		gap: 1rem;
+	}
+
+	&__input {
+		width: 100%;
+		margin: 0 1rem;
+	}
+}

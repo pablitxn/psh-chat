@@ -4,13 +4,11 @@ import { FC } from "react";
 import { IChatData } from "interfaces";
 // Components
 import ChatItem from "./chat-item";
-// Utils
-import { calculatePeriod, mockData } from "utils";
 // Styles
 import "./styles.scss";
 
 interface INavbar {
-	chatData: IChatData;
+	chatData: IChatData[];
 }
 
 const Navbar: FC<INavbar> = ({ chatData }) => {
@@ -30,7 +28,7 @@ const Navbar: FC<INavbar> = ({ chatData }) => {
 				<h1>React Chat</h1>
 			</div>
 			<div className="navbar__chats">
-				{mockData.map(({ name, messages, avatar }, i) => {
+				{chatData.map(({ name, messages, avatar }, i) => {
 					const briefMessage = makeBriefMsg(messages);
 					return (
 						<ChatItem

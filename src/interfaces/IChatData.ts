@@ -1,4 +1,4 @@
-type Message = {
+export type Message = {
 	user: string;
 	msg: string;
 	date: Date;
