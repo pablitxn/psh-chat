@@ -1,0 +1,31 @@
+.chat-item {
+	padding: 1rem;
+	display: flex;
+	gap: 1rem;
+	border-bottom: 1px solid gray;
+	cursor: pointer;
+
+	&__avatar {
+		display: flex;
+		place-content: center;
+		place-items: center;
+		& img {
+			width: 5rem;
+			border-radius: 50%;
+		}
+	}
+
+	&__user-name {
+		color: #fafafa;
+		font-size: 1rem;
+	}
+
+	&__brief-msg {
+		font-size: 0.8rem;
+	}
+
+	&__hour {
+		display: block;
+		white-space: nowrap;
+	}
+}
