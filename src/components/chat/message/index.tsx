@@ -1,6 +1,11 @@
 // React
-import { Message as MessageTypes } from "interfaces";
 import { FC } from "react";
+// Types
+import { Message as MessageTypes } from "interfaces";
+// Styles
+import "./styles.scss";
+// Utils
+import { myInfo } from "utils";
 
 interface IMessage {
 	message: MessageTypes;
@@ -14,10 +19,24 @@ const Message: FC<IMessage> = ({ message, avatar }) => {
 
 	return (
 		<div className={`message ${styleMessage}`}>
-			<span>{date.toDateString}</span>
 			<div className="message__content">
-				<img className="message__avatar" src={avatar} />
-				<p className="message__text">{msg}</p>
+				{user === "me" ? (
+					<>
+						<div className="message__text">
+							<small>9:45 AM</small>
+							<p>{msg}</p>
+						</div>
+						<img className="message__avatar" src={myInfo.avatar} />
+					</>
+				) : (
+					<>
+						<img className="message__avatar" src={avatar} />
+						<div className="message__text">
+							<small>9:45 AM</small>
+							<p>{msg}</p>
+						</div>
+					</>
+				)}
 			</div>
 		</div>
 	);
