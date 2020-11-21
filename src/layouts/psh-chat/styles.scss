@@ -1,6 +1,24 @@
 .psh-layout {
 	display: grid;
 	grid-template-columns: 35% 65%;
-	height: 95vh;
-	width: 100%;
+	border-radius: 2rem;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+	margin-top: 2rem;
+	height: 768px;
+	padding: 2rem;
 }
+
+// // Mobile
+// @media (min-width: 320px) {
+// 	background-color: red;
+// }
+
+// // Tablet
+// @media (min-width: 768px) {
+// 	background-color: green;
+// }
+
+// // Desktop
+// @media (min-width: 1280px) {
+// 	background-color: blue;
+// }

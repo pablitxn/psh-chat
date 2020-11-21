@@ -18,7 +18,8 @@
 		& p {
 			padding: 1rem;
 			border-radius: 1rem;
-			background-color: #fafafa;
+			background-color: #ffffff;
+			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 		}
 	}
 
@@ -27,7 +28,8 @@
 		width: 100%;
 
 		& p {
-			background-color: salmon;
+			background-color: #fceded;
+			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 		}
 	}
 

@@ -17,8 +17,12 @@ const PshChatLayout: FC<IPshChatLayout> = ({ chatData }) => {
 
 	return (
 		<div className="psh-layout">
-			<Navbar chatData={chatData} />
-			<Chat chatSelected={chatSelected} />
+			<div className="psh-layout__navbar">
+				<Navbar chatData={chatData} />
+			</div>
+			<div className="psh-layout__chat">
+				<Chat chatSelected={chatSelected} />
+			</div>
 		</div>
 	);
 };

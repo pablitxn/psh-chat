@@ -1,3 +1,6 @@
+// Global Styles
+import "./styles.scss";
+
 function MyApp({ Component, pageProps }) {
 	return <Component {...pageProps} />;
 }
