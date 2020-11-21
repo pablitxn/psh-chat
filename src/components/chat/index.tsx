@@ -17,7 +17,7 @@ const Chat: FC<IChat> = ({ chatSelected }) => {
 	return (
 		<div className="chat">
 			<div className="chat__header">
-				<img src={avatar} />
+				{avatar()}
 				<div className="chat__header--name">
 					<h2>{name}</h2>
 					<h3>{info}</h3>
