@@ -1,7 +1,7 @@
 // React
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 // Types
-import { IChatData } from "interfaces";
+import { IChatData, Message } from "interfaces";
 // Components
 import Navbar from "components/navbar";
 import Chat from "components/chat";
@@ -10,16 +10,23 @@ import "./styles.scss";
 
 interface IPshChatLayout {
 	chatData: IChatData[];
+	contentChatSelected: IChatData;
+	handleChatSelected: (chatSelected: string) => void;
+	handleMessages: (newMessage: Message) => void;
 }
 
-const PshChatLayout: FC<IPshChatLayout> = ({ chatData }) => {
+const PshChatLayout: FC<IPshChatLayout> = ({
+	chatData,
+	handleChatSelected,
+	handleMessages,
+	contentChatSelected
+}) => {
 	/** Definitions */
-	const [state, setState] = useState(false);
-	const chatSelected = chatData[1];
-	const styleNavbar = state ? "psh-layout__navbar--hidden" : "";
+	const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+	const styleNavbar = isNavbarOpen ? "psh-layout__navbar--hidden" : "";
 
 	/** Handlers */
-	const handleNavbar = () => setState((prev) => !prev);
+	const handleNavbar = () => setIsNavbarOpen((prev) => !prev);
 
 	return (
 		<div className="psh-layout">
@@ -27,10 +34,13 @@ const PshChatLayout: FC<IPshChatLayout> = ({ chatData }) => {
 				☰
 			</button>
 			<div className={`psh-layout__navbar ${styleNavbar}`}>
-				<Navbar chatData={chatData} />
+				<Navbar chatData={chatData} handleChatSelected={handleChatSelected} />
 			</div>
 			<div className="psh-layout__chat">
-				<Chat chatSelected={chatSelected} />
+				<Chat
+					handleSendMessage={handleMessages}
+					chatSelected={contentChatSelected}
+				/>
 			</div>
 		</div>
 	);

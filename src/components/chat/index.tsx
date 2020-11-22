@@ -1,7 +1,7 @@
 // React
-import { FC } from "react";
+import { FC, useState, FormEvent } from "react";
 // Types
-import { IChatData } from "interfaces";
+import { IChatData, Message as IMessage } from "interfaces";
 // Components
 import Message from "./message";
 // Styles
@@ -9,10 +9,28 @@ import "./styles.scss";
 
 interface IChat {
 	chatSelected: IChatData;
+	handleSendMessage: (message: IMessage) => void;
 }
 
-const Chat: FC<IChat> = ({ chatSelected }) => {
+const Chat: FC<IChat> = ({ chatSelected, handleSendMessage }) => {
+	/** Definitions */
+	const [inputValue, setInputValue] = useState("");
 	const { name, info, avatar, messages } = chatSelected;
+
+	/** Handlers */
+	const handleSubmit = (event: FormEvent) => {
+		event.preventDefault();
+		handleSendMessage({
+			msg: inputValue,
+			user: "me",
+			date: new Date()
+		});
+		setInputValue("");
+	};
+
+	const handleChange = ({ target: { value: inputValue } }) => {
+		setInputValue(inputValue);
+	};
 
 	return (
 		<div className="chat">
@@ -28,10 +46,20 @@ const Chat: FC<IChat> = ({ chatSelected }) => {
 					<Message message={message} avatar={avatar} key={i} />
 				))}
 			</div>
-			<div className="chat__input-area">
-				<input type="text" placeholder="Type your message..." />
-				<button>SEND</button>
-			</div>
+			<form
+				noValidate
+				autoComplete="off"
+				onSubmit={handleSubmit}
+				className="chat__input-area"
+			>
+				<input
+					type="text"
+					value={inputValue}
+					onChange={handleChange}
+					placeholder="Type your message..."
+				/>
+				<button onClick={handleSubmit}>SEND</button>
+			</form>
 		</div>
 	);
 };

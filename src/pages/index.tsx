@@ -1,13 +1,69 @@
 // React
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 // Next
 import Head from "next/head";
 // Layouts
 import PshChatLayout from "layouts/psh-chat";
 // Utils
 import { mockData } from "utils";
+// Types
+import { IChatData, Message } from "interfaces";
 
 const Home: FC = () => {
+	/** Definitions */
+	const [state, setState] = useState({
+		chatData: mockData,
+		contentChatSelected: mockData[0],
+		chatSelected: ""
+	});
+	const { contentChatSelected, chatSelected, chatData } = state;
+
+	/** Handlers */
+	const handleChatSelected = (chatSelected: string) => {
+		setState((prev) => ({
+			...prev,
+			chatSelected: chatSelected
+		}));
+	};
+
+	const handleMessages = (newMessage: Message) => {
+		if (newMessage.msg !== "") {
+			setState((prev) => ({
+				...prev,
+				contentChatSelected: {
+					...prev.contentChatSelected,
+					messages: [...prev.contentChatSelected.messages, newMessage]
+				}
+			}));
+		}
+	};
+
+	/** Effects */
+	useEffect(() => {
+		if (chatSelected !== "") {
+			const [chatContent] = chatData.filter(
+				(chat) => chat.name === state.chatSelected
+			);
+			setState((prev) => ({
+				...prev,
+				contentChatSelected: chatContent
+			}));
+		}
+	}, [chatSelected]);
+
+	useEffect(() => {
+		// Filter old message data
+		const newChatData = chatData.filter(
+			(chat) => chat.name !== contentChatSelected.name
+		);
+		// Push new message data
+		newChatData.push(contentChatSelected);
+		setState((prev) => ({
+			...prev,
+			chatData: newChatData
+		}));
+	}, [contentChatSelected]);
+
 	return (
 		<>
 			<Head>
@@ -20,7 +76,12 @@ const Home: FC = () => {
 				/>
 			</Head>
 
-			<PshChatLayout chatData={mockData} />
+			<PshChatLayout
+				chatData={chatData}
+				handleChatSelected={handleChatSelected}
+				handleMessages={handleMessages}
+				contentChatSelected={contentChatSelected}
+			/>
 		</>
 	);
 };
