@@ -10,11 +10,12 @@
 
 		&__navbar {
 			position: absolute;
+			z-index: 10;
 		}
 
 		&__chat {
 			width: 100%;
-			height: 100%;
+			height: 100vh;
 		}
 
 		&__action {
@@ -44,6 +45,11 @@
 
 		&__navbar {
 			display: initial;
+		}
+
+		&__chat {
+			width: 100%;
+			max-height: 768px;
 		}
 
 		&__action {

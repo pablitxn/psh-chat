@@ -9,7 +9,7 @@ import { myInfo } from "utils";
 
 interface IMessage {
 	message: MessageTypes;
-	avatar: any;
+	avatar: string;
 }
 
 const Message: FC<IMessage> = ({ message, avatar }) => {
@@ -26,11 +26,15 @@ const Message: FC<IMessage> = ({ message, avatar }) => {
 							<small>9:45 AM</small>
 							<p>{msg}</p>
 						</div>
-						<div className="message__avatar">{myInfo.avatar()}</div>
+						<div className="message__avatar">
+							<img src={myInfo.avatar} alt="avatar" />
+						</div>
 					</>
 				) : (
 					<>
-						<div className="message__avatar">{avatar()}</div>
+						<div className="message__avatar">
+							<img src={avatar} alt="avatar" />
+						</div>
 						<div className="message__text">
 							<small>9:45 AM</small>
 							<p>{msg}</p>

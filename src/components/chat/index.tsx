@@ -4,6 +4,8 @@ import { FC, useState, FormEvent } from "react";
 import { IChatData, Message as IMessage } from "interfaces";
 // Components
 import Message from "./message";
+// Utils
+import ScrollToBottom from "react-scroll-to-bottom";
 // Styles
 import "./styles.scss";
 
@@ -35,17 +37,17 @@ const Chat: FC<IChat> = ({ chatSelected, handleSendMessage }) => {
 	return (
 		<div className="chat">
 			<div className="chat__header">
-				{avatar()}
+				<img src={avatar} alt="avatar" />
 				<div className="chat__header--name">
 					<h2>{name}</h2>
 					<h3>{info}</h3>
 				</div>
 			</div>
-			<div className="chat__body">
+			<ScrollToBottom className="chat__body">
 				{messages.map((message, i) => (
 					<Message message={message} avatar={avatar} key={i} />
 				))}
-			</div>
+			</ScrollToBottom>
 			<form
 				noValidate
 				autoComplete="off"

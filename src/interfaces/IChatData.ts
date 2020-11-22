@@ -8,5 +8,5 @@ export interface IChatData {
 	name: string;
 	info: string;
 	messages: Message[];
-	avatar: any;
+	avatar: string;
 }
