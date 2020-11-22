@@ -31,4 +31,23 @@
 		font-weight: 800;
 		color: #b5b5b5;
 	}
+
+	// Mobile
+	@media (max-width: 1024px) {
+		height: 100vh;
+		&__header {
+			height: 5rem;
+			img {
+				width: 5rem;
+				height: 5rem;
+			}
+		}
+		&__title {
+			font-size: 1.5rem;
+		}
+
+		&__body {
+			height: 100%;
+		}
+	}
 }

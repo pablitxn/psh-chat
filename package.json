@@ -12,7 +12,8 @@
     "node-sass": "^5.0.0",
     "prettier": "^2.2.0",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "react-scroll-to-bottom": "^4.0.0"
   },
   "license": "MIT",
   "devDependencies": {

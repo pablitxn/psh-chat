@@ -12,6 +12,7 @@ import "./styles.scss";
 interface INavbar {
 	chatData: IChatData[];
 	handleChatSelected: (chatSelected: string) => void;
+	handleNavbar: () => void;
 }
 /** TODO: wip */
 const makeBriefMsg = (messages: Array<any>) => {
@@ -23,7 +24,11 @@ const makeBriefMsg = (messages: Array<any>) => {
 	return "El Justicialismo ha dejado de ser la causa de un hombre para ser la causa del pueblo...";
 };
 
-const Navbar: FC<INavbar> = ({ chatData, handleChatSelected }) => {
+const Navbar: FC<INavbar> = ({
+	chatData,
+	handleChatSelected,
+	handleNavbar
+}) => {
 	/** Definitins */
 	const [state, setState] = useState(chatData);
 
@@ -42,22 +47,25 @@ const Navbar: FC<INavbar> = ({ chatData, handleChatSelected }) => {
 				<Image src="/images/logo.svg" alt="logo" height={100} width={100} />
 				<h1 className="navbar__title">React Chat</h1>
 			</div>
-			<div className="navbar__chats">
-				{state.map(({ name, messages, avatar }, i) => {
-					const briefMessage = makeBriefMsg(messages);
-					return (
-						<ChatItem
-							username={name}
-							briefMessage={briefMessage}
-							avatar={avatar}
-							handleChatSelected={handleChatSelected}
-							key={i}
-						/>
-					);
-				})}
-			</div>
-			<div className="navbar__action-btn">
-				<strong>+&nbsp;</strong>Create New
+			<div className="body">
+				<div className="navbar__chats">
+					{state.map(({ name, messages, avatar }, i) => {
+						const briefMessage = makeBriefMsg(messages);
+						return (
+							<ChatItem
+								username={name}
+								briefMessage={briefMessage}
+								avatar={avatar}
+								handleChatSelected={handleChatSelected}
+								handleNavbar={handleNavbar}
+								key={i}
+							/>
+						);
+					})}
+				</div>
+				<div className="navbar__action-btn">
+					<strong>+&nbsp;</strong>Create New
+				</div>
 			</div>
 		</nav>
 	);

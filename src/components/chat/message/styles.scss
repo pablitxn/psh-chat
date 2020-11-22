@@ -4,8 +4,8 @@
 
 	&__avatar {
 		& img {
-			width: 2rem;
-			height: 2rem;
+			width: 4rem;
+			height: 4rem;
 			border-radius: 50%;
 			padding: 1rem;
 		}
@@ -16,33 +16,30 @@
 		justify-content: center;
 		align-items: center;
 		min-height: 5rem;
-
 		& p {
 			padding: 1rem;
+			margin: 0.5rem;
 			border-radius: 1rem;
-			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+			max-width: 300px;
+			box-shadow: 5px 5px 8px -2px rgba(0, 0, 0, 0.33);
 		}
 	}
 
+	// Modifiers
 	&--right {
 		justify-content: flex-end;
-		width: 100%;
-
 		& p {
 			background-color: #fceded;
-			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 			margin-right: 1rem;
 		}
 	}
 
 	&--left {
 		justify-content: flex-start;
-
 		& small {
 			display: flex;
 			justify-content: flex-end;
 		}
-
 		& p {
 			background-color: seashell;
 			margin-left: 1rem;

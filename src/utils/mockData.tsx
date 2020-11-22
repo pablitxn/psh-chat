@@ -1,5 +1,3 @@
-// Next
-import Image from "next/image";
 // Types
 import { IChatData } from "interfaces";
 
@@ -31,9 +29,7 @@ export const mockData: IChatData[] = [
 				date: calculatePeriod(1)
 			}
 		],
-		avatar: () => (
-			<Image src="/images/avatar-2.png" alt="avatar" width={500} height={500} />
-		)
+		avatar: "https://i.ibb.co/xhpVqxv/avatar-1.png"
 	},
 	{
 		name: "Micaela Alvarez",
@@ -55,9 +51,7 @@ export const mockData: IChatData[] = [
 				date: calculatePeriod(1)
 			}
 		],
-		avatar: () => (
-			<Image src="/images/avatar-1.png" alt="avatar" width={500} height={500} />
-		)
+		avatar: "https://i.ibb.co/F3S9mcd/avatar-2.png"
 	},
 	{
 		name: "Manuel Hoffmann",
@@ -80,15 +74,11 @@ export const mockData: IChatData[] = [
 				date: calculatePeriod(1)
 			}
 		],
-		avatar: () => (
-			<Image src="/images/avatar-3.png" alt="avatar" width={500} height={500} />
-		)
+		avatar: "https://i.ibb.co/mFtDbSR/avatar-3.png"
 	}
 ];
 
 export const myInfo = {
 	name: "John",
-	avatar: () => (
-		<Image src="/images/avatar-4.png" alt="avatar" width={500} height={500} />
-	)
+	avatar: "https://i.ibb.co/gDd71Hp/avatar-4.png"
 };

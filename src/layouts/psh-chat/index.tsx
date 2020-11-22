@@ -1,5 +1,5 @@
 // React
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 // Types
 import { IChatData, Message } from "interfaces";
 // Components
@@ -23,7 +23,7 @@ const PshChatLayout: FC<IPshChatLayout> = ({
 }) => {
 	/** Definitions */
 	const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-	const styleNavbar = isNavbarOpen ? "psh-layout__navbar--hidden" : "";
+	const styleNavbar = !isNavbarOpen ? "psh-layout__navbar--hidden" : "";
 
 	/** Handlers */
 	const handleNavbar = () => setIsNavbarOpen((prev) => !prev);
@@ -34,7 +34,11 @@ const PshChatLayout: FC<IPshChatLayout> = ({
 				☰
 			</button>
 			<div className={`psh-layout__navbar ${styleNavbar}`}>
-				<Navbar chatData={chatData} handleChatSelected={handleChatSelected} />
+				<Navbar
+					chatData={chatData}
+					handleChatSelected={handleChatSelected}
+					handleNavbar={handleNavbar}
+				/>
 			</div>
 			<div className="psh-layout__chat">
 				<Chat

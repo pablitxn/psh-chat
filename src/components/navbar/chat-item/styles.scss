@@ -10,7 +10,8 @@
 		place-content: center;
 		place-items: center;
 		& img {
-			width: 8rem;
+			width: 5rem;
+			height: 5rem;
 			border-radius: 50%;
 		}
 	}
@@ -29,5 +30,21 @@
 	&__hour {
 		display: block;
 		white-space: nowrap;
+	}
+
+	// Mobile
+	@media (max-width: 1024px) {
+		height: 8rem;
+
+		&__user-name {
+			margin-bottom: 0.5rem;
+		}
+
+		&__brief-msg {
+			margin-top: 0;
+			font-size: 0.9rem;
+			height: 3rem;
+			overflow: hidden;
+		}
 	}
 }
