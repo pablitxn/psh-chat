@@ -6,6 +6,7 @@ import "./styles.scss";
 interface IChatItem {
 	username: string;
 	briefMessage: string;
+	hourLastMessage: string;
 	handleChatSelected: (chatSelected: string) => void;
 	avatar: string;
 	handleNavbar: () => void;
@@ -14,6 +15,7 @@ interface IChatItem {
 const ChatItem: FC<IChatItem> = ({
 	username,
 	briefMessage,
+	hourLastMessage,
 	avatar,
 	handleChatSelected,
 	handleNavbar
@@ -37,7 +39,7 @@ const ChatItem: FC<IChatItem> = ({
 				<h3 className="chat-item__user-name">{username}</h3>
 				<p className="chat-item__brief-msg">{briefMessage}</p>
 			</div>
-			<small className="chat-item__hour">10:20 AM</small>
+			<small className="chat-item__hour">{hourLastMessage}</small>
 		</div>
 	);
 };

@@ -1,7 +1,7 @@
 export type Message = {
 	user: string;
 	msg: string;
-	date: Date;
+	date: string;
 };
 
 export interface IChatData {
