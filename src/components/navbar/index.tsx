@@ -43,7 +43,7 @@ const Navbar: FC<INavbar> = ({
 				<div className="navbar__chats">
 					{state.map(({ name, messages, avatar }, i) => {
 						const lastMessage = messages[messages.length - 1].msg;
-						const hourLastMessage = messages[messages.length - 1].date;
+						const hourLastMessage = messages[messages.length - 1].date.brief;
 						return (
 							<ChatItem
 								username={name}

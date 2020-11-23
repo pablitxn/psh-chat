@@ -5,7 +5,7 @@ import { Message as MessageTypes } from "interfaces";
 // Styles
 import "./styles.scss";
 // Utils
-import { myInfo, setPeriod } from "utils";
+import { myInfo } from "utils";
 
 interface IMessage {
 	message: MessageTypes;
@@ -23,7 +23,7 @@ const Message: FC<IMessage> = ({ message, avatar }) => {
 				{user === "me" ? (
 					<>
 						<div className="message__text">
-							<small>{date}</small>
+							<small>{date.brief}</small>
 							<p>{msg}</p>
 						</div>
 						<div className="message__avatar">
@@ -36,7 +36,7 @@ const Message: FC<IMessage> = ({ message, avatar }) => {
 							<img src={avatar} alt="avatar" />
 						</div>
 						<div className="message__text">
-							<small>{date}</small>
+							<small>{date.brief}</small>
 							<p>{msg}</p>
 						</div>
 					</>

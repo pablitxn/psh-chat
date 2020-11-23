@@ -2,12 +2,15 @@
 import { FC, useState, useEffect } from "react";
 // Next
 import Head from "next/head";
-// Layouts
-import PshChatLayout from "layouts/psh-chat";
+import dynamic from "next/dynamic";
 // Utils
 import { mockData } from "utils";
 // Types
 import { Message } from "interfaces";
+
+const PshChatLayout = dynamic(() => import("layouts/psh-chat"), {
+	ssr: false
+});
 
 const Home: FC = () => {
 	/** Definitions */

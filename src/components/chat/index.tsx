@@ -26,7 +26,7 @@ const Chat: FC<IChat> = ({ chatSelected, handleSendMessage }) => {
 		handleSendMessage({
 			msg: inputValue,
 			user: "me",
-			date: setPeriod(0, 0)
+			date: setPeriod(0, 0, 0)
 		});
 		setInputValue("");
 	};
