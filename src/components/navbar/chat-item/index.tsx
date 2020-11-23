@@ -10,6 +10,7 @@ interface IChatItem {
 	handleChatSelected: (chatSelected: string) => void;
 	avatar: string;
 	handleNavbar: () => void;
+	chatSelected: string;
 }
 
 const ChatItem: FC<IChatItem> = ({
@@ -18,11 +19,12 @@ const ChatItem: FC<IChatItem> = ({
 	hourLastMessage,
 	avatar,
 	handleChatSelected,
-	handleNavbar
+	handleNavbar,
+	chatSelected
 }) => {
 	/** Definitions */
-	// TODO: mejorar esto
-	const Avatar = avatar;
+	const styledChatSelected =
+		chatSelected === username ? "chat-item__selected" : "";
 
 	/** Handlers */
 	const handleClick = () => {
@@ -31,7 +33,7 @@ const ChatItem: FC<IChatItem> = ({
 	};
 
 	return (
-		<div className="chat-item" onClick={handleClick}>
+		<div className={`chat-item ${styledChatSelected}`} onClick={handleClick}>
 			<div className="chat-item__avatar">
 				<img src={avatar} alt="avatar" />
 			</div>

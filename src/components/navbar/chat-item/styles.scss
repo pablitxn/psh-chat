@@ -5,6 +5,11 @@
 	border-bottom: 1px solid gray;
 	cursor: pointer;
 
+	&__selected {
+		background-color: #3c3d3f;
+		border-right: 4px solid #ff0000;
+	}
+
 	&__avatar {
 		display: flex;
 		place-content: center;

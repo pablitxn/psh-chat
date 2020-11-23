@@ -15,12 +15,14 @@ interface INavbar {
 	chatData: IChatData[];
 	handleChatSelected: (chatSelected: string) => void;
 	handleNavbar: () => void;
+	chatSelected: string;
 }
 
 const Navbar: FC<INavbar> = ({
 	chatData,
 	handleChatSelected,
-	handleNavbar
+	handleNavbar,
+	chatSelected
 }) => {
 	/** Definitins */
 	const [state, setState] = useState(chatData);
@@ -49,6 +51,7 @@ const Navbar: FC<INavbar> = ({
 								hourLastMessage={hourLastMessage}
 								avatar={avatar}
 								handleChatSelected={handleChatSelected}
+								chatSelected={chatSelected}
 								handleNavbar={handleNavbar}
 								key={i}
 							/>
