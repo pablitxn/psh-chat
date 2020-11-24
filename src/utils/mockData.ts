@@ -1,16 +1,7 @@
 // Types
 import { IChatData } from "interfaces";
-
-/** Utils */
-const calculatePeriod = (days: number) => {
-	const today = new Date();
-	const aWeekInMilliSeconds = 1000 * 60 * 60 * 24 * days;
-	const aWeekLess = today.getTime() - aWeekInMilliSeconds;
-
-	const periord = new Date(aWeekLess);
-
-	return periord;
-};
+// Utils
+import { setPeriod } from "utils";
 
 /** Mock Data */
 export const mockData: IChatData[] = [
@@ -19,17 +10,17 @@ export const mockData: IChatData[] = [
 		info: "Fullstack Developer",
 		messages: [
 			{
-				user: "luciana",
-				msg: "Si tengo alguna otra novedad te comento. Gracias!",
-				date: calculatePeriod(1)
-			},
-			{
 				user: "me",
 				msg: "Hola Luciana, pudieron comprar los afiches?",
-				date: calculatePeriod(1)
+				date: setPeriod(0, 10, 0)
+			},
+			{
+				user: "luciana",
+				msg: "Si tengo alguna otra novedad te comento. Gracias!",
+				date: setPeriod(0, 0, 0)
 			}
 		],
-		avatar: "https://i.ibb.co/xhpVqxv/avatar-1.png"
+		avatar: "https://i.ibb.co/F3S9mcd/avatar-2.png"
 	},
 	{
 		name: "Micaela Alvarez",
@@ -38,20 +29,20 @@ export const mockData: IChatData[] = [
 			{
 				user: "micaela",
 				msg: "Hola John! Entre qué horarios podrías hoy tener la meeting?",
-				date: calculatePeriod(1)
+				date: setPeriod(0, 55, 0)
 			},
 			{
 				user: "me",
 				msg: "Hola Micaela! Muy bien. Yo puedo de 10 a 17hs",
-				date: calculatePeriod(1)
+				date: setPeriod(0, 45, 0)
 			},
 			{
 				user: "micaela",
 				msg: "Dale, agendé la meeting para hoy a las 14hs",
-				date: calculatePeriod(1)
+				date: setPeriod(0, 35, 0)
 			}
 		],
-		avatar: "https://i.ibb.co/F3S9mcd/avatar-2.png"
+		avatar: "https://i.ibb.co/xhpVqxv/avatar-1.png"
 	},
 	{
 		name: "Manuel Hoffmann",
@@ -60,18 +51,18 @@ export const mockData: IChatData[] = [
 			{
 				user: "manuel",
 				msg: "Hola John! Le escribiste a Luciana por los afiches?",
-				date: calculatePeriod(1)
+				date: setPeriod(0, 70, 0)
 			},
 			{
 				user: "me",
 				msg:
 					"Manu, aún no, hoy le escribo por la tarde. Gracias por recordarmelo!",
-				date: calculatePeriod(1)
+				date: setPeriod(0, 65, 0)
 			},
 			{
 				user: "manuel",
 				msg: "Gracias a vos!",
-				date: calculatePeriod(1)
+				date: setPeriod(0, 60, 0)
 			}
 		],
 		avatar: "https://i.ibb.co/mFtDbSR/avatar-3.png"

@@ -5,6 +5,11 @@
 	border-bottom: 1px solid gray;
 	cursor: pointer;
 
+	&__selected {
+		background-color: #3c3d3f;
+		border-right: 4px solid #ff0000;
+	}
+
 	&__avatar {
 		display: flex;
 		place-content: center;
@@ -14,6 +19,10 @@
 			height: 5rem;
 			border-radius: 50%;
 		}
+	}
+
+	&__content {
+		width: 100%;
 	}
 
 	&__user-name {
@@ -34,8 +43,6 @@
 
 	// Mobile
 	@media (max-width: 1024px) {
-		height: 8rem;
-
 		&__user-name {
 			margin-bottom: 0.5rem;
 		}

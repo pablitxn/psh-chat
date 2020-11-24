@@ -2,12 +2,15 @@
 import { FC, useState, useEffect } from "react";
 // Next
 import Head from "next/head";
-// Layouts
-import PshChatLayout from "layouts/psh-chat";
+import dynamic from "next/dynamic";
 // Utils
 import { mockData } from "utils";
 // Types
-import { IChatData, Message } from "interfaces";
+import { Message } from "interfaces";
+
+const PshChatLayout = dynamic(() => import("layouts/psh-chat"), {
+	ssr: false
+});
 
 const Home: FC = () => {
 	/** Definitions */
@@ -32,6 +35,7 @@ const Home: FC = () => {
 				...prev,
 				contentChatSelected: {
 					...prev.contentChatSelected,
+					// We keep old messages and add new ones
 					messages: [...prev.contentChatSelected.messages, newMessage]
 				}
 			}));
@@ -52,7 +56,7 @@ const Home: FC = () => {
 	}, [chatSelected]);
 
 	useEffect(() => {
-		// Filter old message data
+		// Filter and remove old message data
 		const newChatData = chatData.filter(
 			(chat) => chat.name !== contentChatSelected.name
 		);
