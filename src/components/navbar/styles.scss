@@ -33,9 +33,13 @@
 		color: #b5b5b5;
 	}
 
+	&__body {
+		height: 100%;
+		width: 100%;
+	}
+
 	// Mobile
-	@media (max-width: 1024px) {
-		height: 100vh;
+	@media (max-width: 1280px) {
 		&__header {
 			height: 5rem;
 			img {
@@ -45,10 +49,6 @@
 		}
 		&__title {
 			font-size: 1.5rem;
-		}
-
-		&__body {
-			height: 100%;
 		}
 	}
 }

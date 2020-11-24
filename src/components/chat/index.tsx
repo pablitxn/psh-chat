@@ -6,6 +6,7 @@ import { IChatData, Message as IMessage } from "interfaces";
 import Message from "./message";
 // Utils
 import ScrollToBottom from "react-scroll-to-bottom";
+import { setPeriod } from "utils";
 // Styles
 import "./styles.scss";
 
@@ -25,7 +26,7 @@ const Chat: FC<IChat> = ({ chatSelected, handleSendMessage }) => {
 		handleSendMessage({
 			msg: inputValue,
 			user: "me",
-			date: new Date()
+			date: setPeriod(0, 0, 0)
 		});
 		setInputValue("");
 	};
@@ -43,7 +44,7 @@ const Chat: FC<IChat> = ({ chatSelected, handleSendMessage }) => {
 					<h3>{info}</h3>
 				</div>
 			</div>
-			<ScrollToBottom className="chat__body">
+			<ScrollToBottom className="chat__messages">
 				{messages.map((message, i) => (
 					<Message message={message} avatar={avatar} key={i} />
 				))}

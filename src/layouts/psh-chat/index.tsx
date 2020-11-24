@@ -38,6 +38,7 @@ const PshChatLayout: FC<IPshChatLayout> = ({
 					chatData={chatData}
 					handleChatSelected={handleChatSelected}
 					handleNavbar={handleNavbar}
+					chatSelected={contentChatSelected.name}
 				/>
 			</div>
 			<div className="psh-layout__chat">

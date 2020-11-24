@@ -6,21 +6,25 @@ import "./styles.scss";
 interface IChatItem {
 	username: string;
 	briefMessage: string;
+	hourLastMessage: string;
 	handleChatSelected: (chatSelected: string) => void;
 	avatar: string;
 	handleNavbar: () => void;
+	chatSelected: string;
 }
 
 const ChatItem: FC<IChatItem> = ({
 	username,
 	briefMessage,
+	hourLastMessage,
 	avatar,
 	handleChatSelected,
-	handleNavbar
+	handleNavbar,
+	chatSelected
 }) => {
 	/** Definitions */
-	// TODO: mejorar esto
-	const Avatar = avatar;
+	const styledChatSelected =
+		chatSelected === username ? "chat-item__selected" : "";
 
 	/** Handlers */
 	const handleClick = () => {
@@ -29,7 +33,7 @@ const ChatItem: FC<IChatItem> = ({
 	};
 
 	return (
-		<div className="chat-item" onClick={handleClick}>
+		<div className={`chat-item ${styledChatSelected}`} onClick={handleClick}>
 			<div className="chat-item__avatar">
 				<img src={avatar} alt="avatar" />
 			</div>
@@ -37,7 +41,7 @@ const ChatItem: FC<IChatItem> = ({
 				<h3 className="chat-item__user-name">{username}</h3>
 				<p className="chat-item__brief-msg">{briefMessage}</p>
 			</div>
-			<small className="chat-item__hour">10:20 AM</small>
+			<small className="chat-item__hour">{hourLastMessage}</small>
 		</div>
 	);
 };
