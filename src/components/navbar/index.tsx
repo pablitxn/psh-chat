@@ -25,7 +25,7 @@ const Navbar: FC<INavbar> = ({
 	chatSelected
 }) => {
 	/** Definitins */
-	const [state, setState] = useState(chatData);
+	const [state, setState] = useState(orderByLastMessage(chatData));
 
 	/** Effects */
 	useEffect(() => {
@@ -39,7 +39,7 @@ const Navbar: FC<INavbar> = ({
 				<Image src="/images/logo.svg" alt="logo" height={100} width={100} />
 				<h1 className="navbar__title">React Chat</h1>
 			</div>
-			<div className="body">
+			<div className="navbar__body">
 				<div className="navbar__chats">
 					{state.map(({ name, messages, avatar }, i) => {
 						const lastMessage = messages[messages.length - 1].msg;

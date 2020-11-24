@@ -44,7 +44,7 @@ const Chat: FC<IChat> = ({ chatSelected, handleSendMessage }) => {
 					<h3>{info}</h3>
 				</div>
 			</div>
-			<ScrollToBottom className="chat__body">
+			<ScrollToBottom className="chat__messages">
 				{messages.map((message, i) => (
 					<Message message={message} avatar={avatar} key={i} />
 				))}

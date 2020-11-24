@@ -45,6 +45,5 @@ export const orderByLastMessage = (chatData: IChatData[]) => {
 		return lastMessageB - lastMessageA;
 	});
 
-	console.log(messagesOrdered);
 	return messagesOrdered;
 };

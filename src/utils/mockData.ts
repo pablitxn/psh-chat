@@ -12,7 +12,7 @@ export const mockData: IChatData[] = [
 			{
 				user: "me",
 				msg: "Hola Luciana, pudieron comprar los afiches?",
-				date: setPeriod(0, 30, 0)
+				date: setPeriod(0, 10, 0)
 			},
 			{
 				user: "luciana",
@@ -29,17 +29,17 @@ export const mockData: IChatData[] = [
 			{
 				user: "micaela",
 				msg: "Hola John! Entre qué horarios podrías hoy tener la meeting?",
-				date: setPeriod(0, 20, 0)
+				date: setPeriod(0, 55, 0)
 			},
 			{
 				user: "me",
 				msg: "Hola Micaela! Muy bien. Yo puedo de 10 a 17hs",
-				date: setPeriod(0, 15, 0)
+				date: setPeriod(0, 45, 0)
 			},
 			{
 				user: "micaela",
 				msg: "Dale, agendé la meeting para hoy a las 14hs",
-				date: setPeriod(0, 10, 0)
+				date: setPeriod(0, 35, 0)
 			}
 		],
 		avatar: "https://i.ibb.co/xhpVqxv/avatar-1.png"
@@ -51,18 +51,18 @@ export const mockData: IChatData[] = [
 			{
 				user: "manuel",
 				msg: "Hola John! Le escribiste a Luciana por los afiches?",
-				date: setPeriod(0, 60, 0)
+				date: setPeriod(0, 70, 0)
 			},
 			{
 				user: "me",
 				msg:
 					"Manu, aún no, hoy le escribo por la tarde. Gracias por recordarmelo!",
-				date: setPeriod(0, 50, 0)
+				date: setPeriod(0, 65, 0)
 			},
 			{
 				user: "manuel",
 				msg: "Gracias a vos!",
-				date: setPeriod(0, 30, 0)
+				date: setPeriod(0, 60, 0)
 			}
 		],
 		avatar: "https://i.ibb.co/mFtDbSR/avatar-3.png"
