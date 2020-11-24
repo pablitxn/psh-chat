@@ -33,9 +33,7 @@
 	}
 
 	// Mobile
-	@media (max-width: 1024px) {
-		height: 8rem;
-
+	@media (max-width: 1280px) {
 		&__user-name {
 			margin-bottom: 0.5rem;
 		}

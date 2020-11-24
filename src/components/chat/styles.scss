@@ -74,7 +74,14 @@
 	}
 
 	// Mobile
-	@media (max-width: 1024px) {
+	@media (max-width: 1280px) {
 		grid-template-rows: 15% 75% 10%;
+
+		&__header {
+			& img {
+				width: 4rem;
+				border-radius: 50%;
+			}
+		}
 	}
 }
